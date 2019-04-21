@@ -23,8 +23,8 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 @BenchmarkMode(Mode.AverageTime)
-@Warmup(iterations = 10, time=500, timeUnit=TimeUnit.MILLISECONDS)
-@Measurement(iterations = 10, time=500, timeUnit=TimeUnit.MILLISECONDS)
+@Warmup(iterations = 100, time=500, timeUnit=TimeUnit.MILLISECONDS)
+@Measurement(iterations = 100, time=500, timeUnit=TimeUnit.MILLISECONDS)
 @Fork(1)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class MyBenchmark {
@@ -32,8 +32,7 @@ public class MyBenchmark {
 	@State(Scope.Benchmark)
 	public static class Setup {
 
-		@Param({ "10", "15", "20", "25", "30", "40", "60", "80", "100", "200",
-             "400", "800", "1000", "10000", "100000", "1000000", "10000000" })
+    @Param({ "10000000", "100000000", "1000000000" })
 		int N;
 
     // create a List of numbers 1...length
