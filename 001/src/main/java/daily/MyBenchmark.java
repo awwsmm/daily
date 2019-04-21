@@ -1,5 +1,5 @@
 package daily;
-	
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -86,7 +86,7 @@ public class MyBenchmark {
   }
 
 	@Benchmark
-  public boolean testAndrej(Setup d) {
+  public boolean testAndrei(Setup d) {
 
     // setup
     int[] given = d.get_given();
