@@ -100,7 +100,7 @@ public class Memory {
   }
 
   // list of objects in memory
-  private static HashMap<String, Object> refTable = new HashMap<>();
+  protected static HashMap<String, Object> refTable = new HashMap<>();
   static { refTable.put("0x00000000", null); }
 
   // dereference object
