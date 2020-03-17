@@ -50,10 +50,16 @@ public class DCP004 {
 
     // loop over modified array
     for (int ii = 0; ii < len; ++ii) {
-      if (array[ii] != ii+1) return ii+1;
+
+      // DEBUG: see search process
+      System.out.println("array[ii]: " + array[ii] + ", smallestMissing: " + smallestMissing);
+
+      if (array[ii] < 1) continue;
+      if (array[ii] != smallestMissing) return smallestMissing;
+      ++smallestMissing;
     }
 
-    return len+1;
+    return smallestMissing;
   }
 
 }
