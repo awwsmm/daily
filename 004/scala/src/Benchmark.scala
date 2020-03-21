@@ -2,6 +2,9 @@ import scala.util.control.Breaks._
 import scala.util.Random
 import org.scalameter.api._
 
+// see Scaladoc at
+//   https://www.javadoc.io/doc/com.storm-enroute/scalameter_2.13/latest/org/scalameter/index.html
+
 object Benchmark extends Bench.OfflineReport {
 
   private val rand = new Random
