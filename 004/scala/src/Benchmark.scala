@@ -159,9 +159,9 @@ object Benchmark extends Bench.OfflineReport {
 
   performance of "Example #4: randArray(a, b, c)" in {
 
-    val arrayLength = Gen.exponential("n")(2, Math.pow(2, 16).toInt, 2)
-    val pctBad = Gen.range("fracBad")(0, 105, 5)
-    val pctScaling = Gen.range("maxScaling")(5, 305, 5)
+    val arrayLength = Gen.exponential("n")(2, Math.pow(2, 20).toInt, 2)
+    val pctBad = Gen.range("fracBad")(0, 100, 5)
+    val pctScaling = Gen.range("maxScaling")(25, 300, 5)
 
     val arrays: Gen[Array[Int]] = for {
       length <- arrayLength
