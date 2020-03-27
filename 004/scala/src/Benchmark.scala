@@ -114,7 +114,6 @@ object Benchmark extends Bench.OfflineReport {
   performance of "Example #1: randArray(5, 0, 1)" in {
 
     val arrayLength = Gen.single("n")(5)
-
     val arrays = for (n <- arrayLength) yield randArray(n, 0, 1)
 
     using(arrays) curve "findMissingMutable" in findMissingMutable
@@ -129,10 +128,7 @@ object Benchmark extends Bench.OfflineReport {
   performance of "Example #2: randArray(n, 0, 1) -- linear" in {
 
     val arrayLength = Gen.range("n")(100, 1000, 100)
-
-    val arrays: Gen[Array[Int]] = for {
-      length <- arrayLength
-    } yield randArray(length, 0, 1)
+    val arrays = for (n <- arrayLength) yield randArray(n, 0, 1)
 
     using(arrays) curve "findMissingMutable" in { findMissingMutable }
     using(arrays) curve "findMissingInPlace" in { findMissingInPlace }
@@ -147,10 +143,7 @@ object Benchmark extends Bench.OfflineReport {
   performance of "Example #3: randArray(n, 0, 1) -- exponential" in {
 
     val arrayLength = Gen.exponential("n")(2, Math.pow(2, 16).toInt, 2)
-
-    val arrays: Gen[Array[Int]] = for {
-      length <- arrayLength
-    } yield randArray(length, 0, 1)
+    val arrays = for (n <- arrayLength) yield randArray(n, 0, 1)
 
     using(arrays) curve "findMissingMutable" in { findMissingMutable }
     using(arrays) curve "findMissingInPlace" in { findMissingInPlace }
@@ -163,7 +156,7 @@ object Benchmark extends Bench.OfflineReport {
     val pctBad = Gen.range("fracBad")(0, 100, 5)
     val pctScaling = Gen.range("maxScaling")(25, 300, 5)
 
-    val arrays: Gen[Array[Int]] = for {
+    val arrays = for {
       length <- arrayLength
       bad <- pctBad
       scale <- pctScaling
